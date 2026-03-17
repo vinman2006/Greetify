@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  nodeapi:
+    build: ./backend-node
+    ports:
+      - "4000:4000"
+    environment:
+      - MONGO_URI=mongodb+srv://VinMan:Vineet@2006@cluster0.i2sdeaw.mongodb.net/greetify?retryWrites=true&w=majority
+      - PORT=4000
+    restart: always
+
+  javaui:
+    build: ./frontend-java
+    ports:
+      - "8080:8080"
+    environment:
+      - API_BASE_URL=http://nodeapi:4000/api
+    depends_on:
+      - nodeapi
+    restart: always

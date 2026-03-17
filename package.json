@@ -1,0 +1,11 @@
+{
+  "name": "greetify-monorepo",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "./run.sh",
+    "dev": "./run.sh",
+    "build": "cd frontend-java && mvn clean package -DskipTests",
+    "backend": "cd backend-node && npm run dev",
+    "frontend": "cd frontend-java && mvn spring-boot:run"
+  }
+}
