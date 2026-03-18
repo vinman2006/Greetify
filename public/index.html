@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greetify | Birthday Dashboard</title>
+    <link rel="stylesheet" href="/css/greetify.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+</head>
+<body>
+
+    <!-- ── Nav Island ──────────────────────────────────── -->
+    <nav class="nav-island">
+        <div class="logo">GREETIFY</div>
+        <div class="status-telemetry">
+            <div class="status-text mono" id="typewriter-nav">SYNCING...</div>
+            <div class="telemetry-dot" id="pulse-dot"></div>
+        </div>
+    </nav>
+
+    <main class="container">
+
+        <!-- ── Hero ───────────────────────────────────── -->
+        <header class="hero-telemetry">
+            <h1 id="hero-title">Birthday Dashboard</h1>
+            <div id="node-counter" class="mono">0 CONTACTS SYNCHRONIZED</div>
+        </header>
+
+        <!-- ── Stats Bar ─────────────────────────────── -->
+        <div class="stats-bar" id="stats-bar">
+            <div class="stat-pill total">
+                <div class="stat-num" id="stat-total">—</div>
+                <div class="stat-label">CONTACTS</div>
+            </div>
+            <div class="stat-pill today">
+                <div class="stat-num" id="stat-today">—</div>
+                <div class="stat-label">TODAY</div>
+            </div>
+            <div class="stat-pill upcoming">
+                <div class="stat-num" id="stat-upcoming">—</div>
+                <div class="stat-label">THIS WEEK</div>
+            </div>
+            <div class="stat-pill missed">
+                <div class="stat-num" id="stat-missed">—</div>
+                <div class="stat-label">MISSED</div>
+            </div>
+        </div>
+
+        <!-- ── Today Analysis ────────────────────────── -->
+        <section class="section-block" id="today-section">
+            <div class="section-header">
+                <div class="section-accent today-accent"></div>
+                <div class="section-title mono">TODAY</div>
+                <div class="category-counter mono" id="count-today">0</div>
+            </div>
+            <div class="diagnostic-panel">
+                <div id="today-content">
+                    <div id="today-empty" class="empty-module">
+                        <div class="empty-icon">🎂</div>
+                        <div class="empty-headline">NO BIRTHDAYS TODAY</div>
+                        <div id="next-birthday-preview"></div>
+                        <div class="week-summary" id="week-summary-block"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── Critical Window (7 Days) ──────────────── -->
+        <section class="section-block">
+            <div class="section-header">
+                <div class="section-accent upcoming-accent"></div>
+                <div class="section-title mono">UPCOMING — 7 DAYS</div>
+                <div class="category-counter mono" id="count-7d">0</div>
+            </div>
+            <div class="timeline-container" id="upcoming-7d"></div>
+        </section>
+
+        <!-- ── Future Radar (30 Days) ────────────────── -->
+        <section class="section-block">
+            <div class="section-header">
+                <div class="section-accent upcoming-accent"></div>
+                <div class="section-title mono">FUTURE RADAR — 30 DAYS</div>
+                <div class="category-counter mono" id="count-30d">0</div>
+            </div>
+            <div class="timeline-container" id="upcoming-30d"></div>
+        </section>
+
+        <!-- ── Missed ─────────────────────────────────── -->
+        <section class="section-block" style="margin-bottom: 100px;">
+            <div class="section-header">
+                <div class="section-accent missed-accent"></div>
+                <div class="section-title mono">MISSED</div>
+                <div class="category-counter mono" id="count-missed">0</div>
+            </div>
+            <div class="timeline-container" id="missed-list"></div>
+        </section>
+
+        <footer>
+            <div class="footer-text">GREETIFY V1.3 ∙ REAL-TIME REGISTRY ∙ MONGODB ATLAS</div>
+        </footer>
+    </main>
+
+    <script src="/js/animations.js"></script>
+    <script src="/js/greetify.js"></script>
+</body>
+</html>
